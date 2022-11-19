@@ -5,8 +5,10 @@ span, h1{
 }
 
 body{
-  background-color: black;
-  
+  background-image: url(images/alexander-shatov-qt7S2QuAhJI-unsplash.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 *{
     box-sizing: border-box;
@@ -21,15 +23,50 @@ body{
     width: 100%;
   }
   .header-nav{
-      padding:1%;
-      
+      padding:7px;
+      margin-right: 120px;
       font-family: system-ui;
   }
-  .header-nav a:hover{
-    border-bottom: 1px solid rgb(94, 194, 236);
-    color: red;
-    
+
+  .header-nav a{
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:white;
+    padding: 10px;
+    transition: color 0.5s, border-bottom 0.8s;
+    margin-left: 60px;
   }
+ 
+  .link{
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+  }
+  .link::before,
+  .link::after{
+       content: '';
+       position: absolute;
+       left: 0;
+       width: 100%;
+       height: 2px;
+       background-color: #e65454;
+       transform: scaleX(0);
+       transition: transform .25s;
+  }
+  .link::before{
+    top: -3px;
+    transform-origin: left;
+  }
+  .link::after{
+    bottom: -3px;
+    transform-origin: right;
+  }
+  .link:hover::before,
+  .link:hover::after{
+    transform: scaleX(1);
+  }
+
   .header-search{
     padding: 1%;
     
@@ -47,14 +84,7 @@ body{
     transform: scale(1.2);
   }
   
-  .header-nav a{
-    text-decoration: none;
-    font-size: 1.5rem;
-    color:white;
-    padding: 1rem;
-    transition: color 0.5s, border-bottom 0.8s;
-
-  }
+  
   
   /* login image */
   
@@ -105,19 +135,19 @@ body{
     flex-wrap:wrap;
     justify-content: center;
     padding: 2%;
-    border: 1px solid black;
+   
   }
   .slider-song-1{
     padding: 2%;
     margin: 2%;
   }
   .slider-song-1 img{
-    width: 150px;
+    width: 200px;
     transition: width 0.8s;
   
   }
   .slider-song-1 img:hover{
-    width: 200px;
+    width: 250px;
     box-shadow: 0px 5px 5px rgb(16, 176, 216);
   }
   
@@ -140,16 +170,25 @@ body{
     justify-content: space-between;
     padding: .5%;
      margin:0 2% 0 2% ;
-
+ 
   
   }
   .latest-release-content-img{
      margin:1%;
      transition: 0.5s;
-  
+     height: 150px;
+     width: 150px;
+     position: relative;
+     overflow: hidden;
+     border-radius: 10px;
   }
   .latest-release-content-img img{
-      width:150px;
+      width:100%;
+      height: 100%;
+      transition: 0.5s;
+  }
+  .latest-release-content-img img:hover{
+    transform: scale(1.1);
   }
   .lr-play {
     display: none;
@@ -163,9 +202,10 @@ body{
   .latest-release-content-img:hover .lr-play{
     
     display: inline-block;
-    margin-left:-4.2rem;
-    margin-top: 5.5rem;
+    margin-left:-5.7rem;
+    margin-top: 5.2rem;
     position: absolute;
+    opacity: 0.8;
     
   }
   .latest-release-content-des{
@@ -199,12 +239,13 @@ body{
     display:none;
     position: absolute;
     color: white;
-    
+    background-color: #0077b5;
     padding:5px;
     box-shadow: 15 15px 20px rgba(0,0,0,.5);
     z-index: 1;
-    width: 20%;
+    width: 15%;
     height: 15%;
+    margin-top: -10px;
   }
   .ul-lr-dropdown-2 a{
     color: white;
@@ -216,6 +257,7 @@ body{
     z-index: 1;
     width: 20%;
     height: 15%;
+   
   }
   .ul-lr-dropdown-2 {
     display:none;
@@ -226,8 +268,10 @@ body{
     padding:5px;
     box-shadow: 15 15px 20px rgba(0,0,0,.5);
     z-index: 1;
-    width: 20%;
+    width: 15%;
     height: 15%;
+    background-color: #0077b5;
+    margin-top: -10px;
   }
   .ul-lr-dropdown-4 a{
     color: white;
@@ -243,8 +287,10 @@ body{
     padding:5px;
     box-shadow: 15 15px 20px rgba(222, 215, 215, 0.5);
     z-index: 1;
-    width: 20%;
+    width: 15%;
     height: 15%;
+    background-color: #0077b5;
+    margin-top: -10px;
   }
   .latest-release-dropdown:hover .ul-lr-dropdown{
     display: block;
@@ -256,7 +302,7 @@ body{
     display: block;
   }
   .latest-release-content-img:hover{
-    transform: scale(1.1);
+   
     box-shadow: 0 15px 20px rgba(101, 45, 243, 0.5);
    
   }
@@ -270,7 +316,7 @@ body{
     display: flex;
     flex-wrap:wrap;
     margin-top: 10px;
-    border: 1px solid black;
+   
   }
   .popular-artists-header{
     width: 100%;
@@ -286,16 +332,17 @@ body{
   }
   
   .popular-artists-profile img {
-    width: 120px;
+    width: 130px;
     border-radius:7rem;
-    margin: 1rem;
+    margin: 20px;
   }
   .popular-artists-profile:hover .lr-play{
   
     display: inline-block;
-    margin-left:-5.2rem;
+    margin-left:-6rem;
     margin-top: 4.5rem;
     position: absolute;
+    opacity: 0.8;
   }
   .popular-artists-profile p{
     padding-left: .5rem;
@@ -309,7 +356,7 @@ body{
   }
   .popular-artists-profile:hover{
     transform: scale(1.09);
-    box-shadow: 0 15px 20px rgba(240, 10, 10, 0.5);
+    box-shadow: 0 15px 20px rgba(226, 95, 95, 0.5);
   
   }
   /* Stations Type */
@@ -321,7 +368,6 @@ body{
   .stations-container{
     display:flex;
     flex-wrap: wrap;
-    background-color:black;
     justify-content: space-evenly;
   
   }
@@ -351,9 +397,22 @@ body{
   
   
   }
+  .bg-image{
+    background-image:url("images/stations-logo.jpeg");
+    width:120px;
+    text-align: center;
+    background-position: center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    border-radius:100px;
+    
+  
+  
+  }
+
   
   .bg-image-3{
-    background-image:url("https://i.ytimg.com/vi/4j1v3lZDvE4/maxresdefault.jpg");
+    background-image:url("images/chill1.jpeg");
     width:120px;
     background-position: center;
     background-size: cover;
@@ -363,7 +422,7 @@ body{
   
   }
   .bg-image-4{
-    background-image:url("https://is1-ssl.mzstatic.com/image/thumb/Music126/v4/49/1d/55/491d55f8-c311-806d-b3bd-8aeb18db2040/artwork.jpg/400x400cc.jpg");
+    background-image:url("images/rock1.jpeg");
     width:120px;
     background-position: center;
     background-size: cover;
@@ -373,7 +432,7 @@ body{
   
   }
   .bg-image-5{
-    background-image:url("https://www.kibrispdr.org/data/838/rock-n-roll-background-56.jpg");
+    background-image:url("images/calm.jpeg");
     width:120px;
     background-position: center;
     background-size: cover;
@@ -417,6 +476,7 @@ body{
     left: 35px;
   }
   .stations-container div:hover{
+    border-radius: 30px;
     transform: scale(1.09);
     box-shadow: 0 25px 30px rgba(221, 32, 187, 0.5);
   }
@@ -459,6 +519,7 @@ body{
   .mood-type div:hover{
     box-shadow: 0 15px 20px rgba(211, 204, 204, 0.5);
     z-index: 1;
+    
   }
   
   /* Latest-English */
@@ -538,13 +599,13 @@ body{
     display: inline-block;
     width: 20%;
     height:100vh;
-    border: 1px solid black;
+    
     vertical-align: top;
     margin-left:8rem;
     color:white;
     font-size: 13px;
-    box-shadow: 0 5px 10px rgba(235, 216, 216, 0.5);
-    overflow: scroll;
+    margin-top: 50px;
+  
     border-radius: 20px;
   
   }
@@ -583,11 +644,9 @@ body{
     margin-top:15px;
     color: grey;
     zoom: 1.6;
+    cursor: pointer;
   }
-  .aside-content-heart i:hover{
-    color:red ;
-    
-  }
+  
   .aside-div-header{
     display:flex;
     justify-content: space-between;
@@ -601,9 +660,62 @@ body{
     margin-top:10px;
   
   }
-
+.fa-bell:hover{
+  animation: shake .25s;
+}
  
+/* bigger track */
+.Bigger{
+  display: flex;
+  flex-wrap: wrap;
+  
+  margin:15px;
+  justify-content: space-between;
+}
+.bigger-content{
+  margin: 30px;
 
+}
+.Bigger-header{
+  width: 100%;
+  color: white;
+  padding-bottom: 3%;
+}
+.bigger-track{
+    overflow: hidden;
+    position: relative;
+}
+.bigger-track img{
+    width: 200px;
+    height: 200px;
+   
+    /* border: 1px solid #0f0f2b; */
+    object-fit: cover;
+    transition: 0.5s;
+}
+.bigger-content img:hover{
+  transform: scale(1.1);
+ 
+   
+}
+.details-section{
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  top: 140;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  color: transparent;
+  font-weight: bolder;
+  font-size: larger;
+  padding: 10px;
+  text-align: center;
+}
+.bigger-track:hover .details-section{
+  background-color: #db0f0f78;
+  color: white;
+}
 /* social section */
 
 
@@ -673,6 +785,7 @@ outline-color: #1da1f2;
      width: 100%;
   
   }
+
   
   #audio-container{
      display: flex;
